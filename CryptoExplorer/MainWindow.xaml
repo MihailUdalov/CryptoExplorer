@@ -1,0 +1,122 @@
+﻿<Window x:Class="CryptoExplorer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:nav="clr-namespace:CryptoExplorer.State.Navigators"
+        xmlns:local="clr-namespace:CryptoExplorer"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="MainWindow" 
+        MaxHeight="558px" MinHeight="558px"
+        MaxWidth="1158px" MinWidth="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44px" ></RowDefinition>
+            <RowDefinition Height="2px"></RowDefinition>
+            <RowDefinition Name="ContentRow" Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60px"></ColumnDefinition>
+            <ColumnDefinition Width="140px"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Header-->
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" DataContext="{Binding Navigator}">
+            <!--Title section-->
+            <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight"
+                    Margin="15 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button Style="{StaticResource TitleButtonStyle}" Background="Black" Opacity="0.7"
+                    Width="36" Height="36" VerticalAlignment="Center"
+                    ToolTipService.InitialShowDelay="700" Cursor="Hand"   
+                    Focusable="False">
+                </Button>
+            </StackPanel>
+
+            <!--Window buttons-->
+            <StackPanel VerticalAlignment="Center" FlowDirection="RightToLeft" Orientation="Horizontal"
+                    Margin="0 0 20 0" HorizontalAlignment="Right">
+                <Button Name="btnClose"
+                    Style="{StaticResource CloseButtonStyle}"
+                    Background="Black"
+                    Width="15"
+                    Height="15"
+                    Focusable="False"
+                    ToolTip="Закрыть"
+                    ToolTipService.InitialShowDelay="1000"
+                    Command="{Binding CloseWindow}"  
+                   />
+                <Button x:Name="btnMinimize"
+                    Style="{StaticResource MinimizeButtonStyle}"
+                    Background="Black"
+                    Width="15"
+                    Height="15"
+                    Focusable="False"
+                    ToolTipService.InitialShowDelay="1000"
+                    Margin="20 0 0 0"
+                    Command="{Binding MinimazeWindow}"  
+                    />
+            </StackPanel>
+        </Grid>
+
+        <!--Separator -->
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="Black"/>
+
+        <!--Menu-->
+        <Grid Name="HamburgerMenu" Grid.Row="3"  Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"
+                    Width="60" Panel.ZIndex="1"  HorizontalAlignment="Left"
+                    >
+            <Grid DataContext="{Binding Navigator}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <ToggleButton Grid.Row="0" Height="60" 
+                              Style="{StaticResource MenuButtonStyle}" Background="Black" Focusable="False" Grid.ColumnSpan="2"
+                              />
+                <RadioButton Grid.Row="1" Height="60" 
+                             GroupName="NavigationGroup"
+                             Style="{StaticResource HomeButtonStyle}" 
+                             Command="{Binding UpdateCurrentViewModelCommand}"  
+                             CommandParameter="{x:Static nav:ViewType.Home}"
+                             Background="Black" 
+                             Focusable="False" IsChecked="False"
+                             Grid.ColumnSpan="2"
+                             />
+                <RadioButton Grid.Row="2" Height="60"
+                             GroupName="NavigationGroup"
+                             Style="{StaticResource CryptoExchangeButtonStyle}"   
+                              Command="{Binding UpdateCurrentViewModelCommand}"  
+                             CommandParameter="{x:Static nav:ViewType.CryptoExchange}"
+                             Background="Black"  
+                             Focusable="False" IsChecked="False"
+                             Grid.ColumnSpan="2"
+                             />
+                <RadioButton Grid.Row="8" Height="60" 
+                             GroupName="NavigationGroup"
+                             Style="{StaticResource InfoButtonStyle}" 
+                             Command="{Binding UpdateCurrentViewModelCommand}"  
+                             CommandParameter="{x:Static nav:ViewType.Info}"
+                             Background="Black" Focusable="False"
+                             ToolTipService.InitialShowDelay="750" Grid.ColumnSpan="2"
+                             />
+            </Grid>
+        </Grid>
+
+        <ContentControl Grid.Row ="2" Grid.Column="2" Content="{Binding Navigator.CurrentViewModel}" />
+    </Grid>
+</Window>

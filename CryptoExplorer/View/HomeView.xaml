@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="CryptoExplorer.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CryptoExplorer.View"
+             mc:Ignorable="d" d:DesignWidth="800" Height="534">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66px" ></RowDefinition>
+            <RowDefinition Name="ContentRow" Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock>Search:</TextBlock>
+            
+        </Grid>
+        <ListView x:Name="CoinsList" Grid.Row="1" Background="Transparent" BorderThickness="1"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Path=Rank}" Width="100" Header="Rank"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="100" Header="Name"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=PriceUsd}"  Width="200" Header="Price" ></GridViewColumn>
+                    <GridViewColumn Width="215" Header="Details">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Width="200">Details</Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

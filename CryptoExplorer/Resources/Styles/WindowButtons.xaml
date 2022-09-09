@@ -1,0 +1,324 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--Window buttons-->
+    <Style x:Key="CloseButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="Border">
+                        <Grid>
+                            <Rectangle Fill="Transparent"/>
+                            <Path Name="Icon" Data="{StaticResource CloseIcon}" 
+                             Stretch="Uniform" 
+                             Opacity="0.5"
+                             Fill="{TemplateBinding Background}" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CloseMessageBoxButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="Border">
+                        <Grid>
+                            <Rectangle Fill="Transparent"/>
+                            <Path Name="Icon" Data="{StaticResource CloseIcon}" 
+                             Stretch="Uniform" 
+                             Opacity="0.5"
+                             Fill="{TemplateBinding Background}" 
+                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="MaximizeButtonStyle" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Name="Border">
+                        <Grid>
+                            <Rectangle Fill="Transparent"/>
+                            <Path Name="Icon" Data="{StaticResource MaximizeIcon}"
+                                  Stretch="Uniform"
+                                  Opacity="0.5"
+                                  Fill="{TemplateBinding Background}"
+                                  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Data" Value="{StaticResource RestoreIcon}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MinimizeButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="Border">
+                        <Grid>
+                            <Rectangle Fill="Transparent"/>
+                            <Path Name="Icon" Data="{StaticResource MinimizeIcon}"
+                                  Opacity="0.5"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Background}"
+                                  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--Title button-->
+    <Style x:Key="TitleButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="Border">
+                        <Grid>
+                            <Rectangle Fill="Transparent"/>
+                            <Path Name="Icon" Data="{StaticResource Icon}"
+                                  Opacity="{TemplateBinding Opacity}"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Background}"
+                                  Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Menu buttons-->
+    <Style x:Key="MenuButtonStyle" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border Name="Border" Width="{TemplateBinding Width}" Background="LightGray">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="Transparent" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid Name="Stroke" Width="40" Height="40" Visibility="Hidden">
+                                    <Path Data="{StaticResource ActiveMenuIcon}" Stretch="Fill" Fill="{TemplateBinding Foreground}" Visibility="Visible" />
+                                </Grid>
+                                <Path Name="Icon" Data="{StaticResource MenuIcon}" 
+                              Stretch="Uniform" Fill="{TemplateBinding Background}" Opacity="0.5"
+                              Width="20" Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="0" />
+                                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+
+                            <TextBlock Text="{TemplateBinding Tag}" Foreground="Black" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Stroke" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="#7C7C7C"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="InfoButtonStyle" TargetType="RadioButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="Border" Width="{TemplateBinding Width}" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="Transparent" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Name="BackGround" Fill="Transparent"/>
+                                <Path Name="Icon" Data="{StaticResource InfoIcon}"
+                                  Opacity="0.5"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Width="30" Height="30" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                            </Grid>
+
+                            <TextBlock Text="О программе" Foreground="Black" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="#232323"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="#7C7C7C"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HomeButtonStyle" TargetType="RadioButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="Border" Width="{TemplateBinding Width}" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="Transparent" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Name="BackGround" Fill="Transparent"/>
+                                <Path Name="Icon" Data="{StaticResource HomeIcon}"
+                                  Opacity="0.5"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Width="20" Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                            </Grid>
+
+                            <TextBlock Text="Код с проверкой четности" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="#232323"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="#7C7C7C"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CryptoExchangeButtonStyle" TargetType="RadioButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Name="Border" Width="{TemplateBinding Width}" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="Transparent" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Grid Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Rectangle Name="BackGround" Fill="Transparent"/>
+                                <Path Name="Icon" Data="{StaticResource CryptoExchangeIcon}"
+                                  Opacity="0.5"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Width="30" Height="30" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                            </Grid>
+
+                            <TextBlock Text="Код Хемминга" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Opacity" Value="1"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="#232323"/>
+                            <Setter TargetName="Border" Property="Background" Value="#6C6C6CFF"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="#7C7C7C"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="InfoImageButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="Border" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="Transparent">
+                        <Grid>
+                            <Rectangle Fill="Transparent" Grid.Column="0" Grid.ColumnSpan="2"/>
+                            <Path Name="Icon" Data="{StaticResource InfoIcon}"
+                                  Stretch="Uniform"
+                                  Fill="{TemplateBinding Foreground}"
+                                  Width="50" Height="50" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

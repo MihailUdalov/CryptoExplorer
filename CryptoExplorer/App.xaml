@@ -1,0 +1,34 @@
+﻿<Application x:Class="CryptoExplorer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodel="clr-namespace:CryptoExplorer.ViewModel"
+             xmlns:view="clr-namespace:CryptoExplorer.View"
+             xmlns:local="clr-namespace:CryptoExplorer">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+            
+            <ResourceDictionary Source="/Resources/Styles/Icons.xaml" />
+            <ResourceDictionary Source="/Resources/Styles/WindowButtons.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:CryptoDetailsViewModel}">
+                <view:CryptoDetailsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:CryptoExchangeViewModel}">
+                <view:CryptoExchangeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodel:InformationViewModel}">
+                <view:InformationView/>
+            </DataTemplate>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
