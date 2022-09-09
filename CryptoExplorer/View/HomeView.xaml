@@ -11,8 +11,8 @@
             <RowDefinition Name="ContentRow" Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock>Search:</TextBlock>
-            
+            <TextBlock Margin="300,0,-300,0">Search</TextBlock>
+            <TextBox Width="200" Height="20" Margin="218,23,382,23"></TextBox>
         </Grid>
         <ListView x:Name="CoinsList" Grid.Row="1" Background="Transparent" BorderThickness="1"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
             <ListView.View>
