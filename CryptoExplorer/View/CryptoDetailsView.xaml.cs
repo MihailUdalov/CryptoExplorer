@@ -21,11 +21,22 @@ namespace CryptoExplorer.View
     /// </summary>
     public partial class CryptoDetailsView : UserControl
     {
-        public DataCoin DataCryptoCoin { get; set; }
         public CryptoDetailsView()
         {
-            DataCryptoCoin = CryptoCoins.DetailDataCoin;
             InitializeComponent();
+
+            CoinName.Text = CryptoCoins.DetailDataCoin.Name;
+            CoinID.Text = "ID: " + CryptoCoins.DetailDataCoin.ID;
+            CoinRank.Text = "Rank: " + CryptoCoins.DetailDataCoin.Rank;
+            CoinSymbol.Text = "Symbol: " + CryptoCoins.DetailDataCoin.Symbol;
+            CoinSupply.Text = "Supply: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.Supply),3).ToString();
+            CoinMaxSupply.Text = "MaxSupply: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.MaxSupply),3).ToString();
+
+            CoinMarketCapUsd.Text = "MarketCapUsd: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.MarketCapUsd),3).ToString();
+            CoinVolumeUsd24Hr.Text = "VolumeUsd24Hr: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.VolumeUsd24Hr),3).ToString();
+            CoinPriceUsd.Text = "PriceUsd: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.PriceUsd),3).ToString() + "$";
+            CoinChangePercent24Hr.Text = "ChangePercent24Hr: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.ChangePercent24Hr),3).ToString();
+            CoinVwap24Hr.Text = "Vwap24Hr: " + Math.Round(Convert.ToDecimal(CryptoCoins.DetailDataCoin.Vwap24Hr), 3).ToString();
         }
     }
 }

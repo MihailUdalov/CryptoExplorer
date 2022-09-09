@@ -44,8 +44,6 @@
                     Width="15"
                     Height="15"
                     Focusable="False"
-                    ToolTip="Закрыть"
-                    ToolTipService.InitialShowDelay="1000"
                     Command="{Binding CloseWindow}"  
                    />
                 <Button x:Name="btnMinimize"
