@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CryptoExplorer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,10 @@ namespace CryptoExplorer.View
     /// </summary>
     public partial class CryptoDetailsView : UserControl
     {
+        public DataCoin DataCryptoCoin { get; set; }
         public CryptoDetailsView()
         {
+            DataCryptoCoin = CryptoCoins.DetailDataCoin;
             InitializeComponent();
         }
     }

@@ -10,6 +10,6 @@ namespace CryptoExplorer.ViewModel
 {
     public class ViewModelBase
     {
-        public INavigator Navigator { get; set; } = new Navigator();
+        public static INavigator Navigator { get; set; } = new Navigator();
     }
 }

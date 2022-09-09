@@ -37,7 +37,7 @@ namespace CryptoExplorer.Commands
                     case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();
                         break;
-                    case ViewType.CryptoDetails:
+                    case ViewType.CryptoDetails:             
                         _navigator.CurrentViewModel = new CryptoDetailsViewModel();
                         break;
                     case ViewType.CryptoExchange:

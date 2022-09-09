@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         Title="MainWindow" 
         MaxHeight="558px" MinHeight="558px"
-        MaxWidth="1158px" MinWidth="1024"
+        MaxWidth="850px" MinWidth="850"
         WindowStartupLocation="CenterScreen">
     <Grid >
         <Grid.RowDefinitions>
@@ -100,7 +100,7 @@
                 <RadioButton Grid.Row="2" Height="60"
                              GroupName="NavigationGroup"
                              Style="{StaticResource CryptoExchangeButtonStyle}"   
-                              Command="{Binding UpdateCurrentViewModelCommand}"  
+                             Command="{Binding UpdateCurrentViewModelCommand}"  
                              CommandParameter="{x:Static nav:ViewType.CryptoExchange}"
                              Background="Black"  
                              Focusable="False" IsChecked="False"

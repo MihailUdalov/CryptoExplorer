@@ -1,6 +1,8 @@
 ﻿using CryptoExplorer.Models;
+using CryptoExplorer.ViewModel;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,9 +30,7 @@ namespace CryptoExplorer.View
         public HomeView()
         {
             InitializeComponent();
-            CryptoDataCoins = GetCryptoCoins();
-            
-            CoinsList.ItemsSource = CryptoDataCoins.Data.Take(10);
+            PushToListView();
         }
 
         private CryptoCoins GetCryptoCoins()
@@ -49,6 +49,30 @@ namespace CryptoExplorer.View
             }
 
             return JsonConvert.DeserializeObject<CryptoCoins>(response);
+        }
+
+        public void PushToListView()
+        {        
+            CryptoDataCoins = GetCryptoCoins();
+
+            CoinsList.ItemsSource = CryptoDataCoins.Data.Take(10);
+        }
+
+        private void CoinSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            CoinsList.ItemsSource = CryptoDataCoins.Data.Where(x => x.Name.Contains(CoinSearchTextBox.Text));
+        }
+
+        private void RefrechListViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            PushToListView();
+        }
+        private void DetailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            string nameCoin = (sender as Button)?.Tag.ToString();
+            DataCoin CryptoCoin = CryptoDataCoins.Data.FirstOrDefault(x => x.Name == nameCoin);
+            CryptoCoins.DetailDataCoin = CryptoCoin;
+            HomeViewModel.Navigator.CurrentViewModel = new CryptoDetailsViewModel();
         }
     }
 }

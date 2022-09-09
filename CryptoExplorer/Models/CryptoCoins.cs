@@ -9,7 +9,7 @@ namespace CryptoExplorer.Models
     public class CryptoCoins
     {
         public List<DataCoin> Data { get; set; }
-
+        public static DataCoin DetailDataCoin { get; set; }
     }
     public class DataCoin
     {
