@@ -7,6 +7,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Exchange"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50px" ></RowDefinition>
+            <RowDefinition Height="70px" ></RowDefinition>
+            <RowDefinition Height="30px" ></RowDefinition>
+            <RowDefinition Height="50px" ></RowDefinition>
+            <RowDefinition Height="30px" ></RowDefinition>
+            <RowDefinition Height="30px" ></RowDefinition>
+            <RowDefinition Name="ContentRow" Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50px"></ColumnDefinition>
+            <ColumnDefinition Width="200px"></ColumnDefinition>
+            <ColumnDefinition Width="10px"></ColumnDefinition>
+            <ColumnDefinition Width="80px"></ColumnDefinition>
+            <ColumnDefinition Width="10px"></ColumnDefinition>
+            <ColumnDefinition Width="200px"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Georgia" FontSize="14" FontWeight="Bold">Exchanger</TextBlock>
+
+        <ComboBox x:Name="FirstCryptoCoinComboBox"  DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" ></ComboBox>
+        <TextBox x:Name="FirstTextBox" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Column="1" Grid.Row="4"></TextBox>
+
+        <ComboBox x:Name="SecondtCryptoCoinComboBox" DisplayMemberPath="Name" Grid.Column="5" Grid.Row="2" ></ComboBox>
+        <TextBox x:Name="SecondtTextBox" Grid.Column="5" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="4" IsReadOnly="True"></TextBox>
+
+        <Button Grid.Column="3" Grid.Row="5" Click="Button_Click">Exchange</Button>
     </Grid>
 </UserControl>
