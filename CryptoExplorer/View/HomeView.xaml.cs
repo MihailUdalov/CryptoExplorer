@@ -67,12 +67,5 @@ namespace CryptoExplorer.View
         {
             PushToListView();
         }
-        private void DetailsButton_Click(object sender, RoutedEventArgs e)
-        {
-            string nameCoin = (sender as Button)?.Tag.ToString();
-            DataCoin CryptoCoin = CryptoDataCoins.Data.FirstOrDefault(x => x.Name == nameCoin);
-            CryptoCoins.DetailDataCoin = CryptoCoin;
-            HomeViewModel.Navigator.CurrentViewModel = new CryptoDetailsViewModel();
-        }
     }
 }

@@ -23,19 +23,18 @@
             <ColumnDefinition Width="300px"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <TextBlock x:Name="CoinName" Text='{Binding Path=Name}' Grid.Row="1"   Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Georgia" FontSize="24" FontWeight="Bold"></TextBlock>
 
-        <TextBlock x:Name="CoinName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Georgia" FontSize="24" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinID" Text='{Binding Path=ID}' Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinRank" Text='{Binding Path=Rank}' Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinSymbol" Text='{Binding Path=Symbol}' Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinSupply" Text='{Binding Path=Supply}' Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinMaxSupply" Text='{Binding Path=MaxSupply}' Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
 
-        <TextBlock x:Name="CoinID" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinRank" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinSymbol" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinSupply" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinMaxSupply" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-
-        <TextBlock x:Name="CoinMarketCapUsd" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinVolumeUsd24Hr" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinPriceUsd" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinChangePercent24Hr" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
-        <TextBlock x:Name="CoinVwap24Hr" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinMarketCapUsd" Text='{Binding Path=MarketCapUsd}' Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinVolumeUsd24Hr" Text='{Binding Path=VolumeUsd24Hr}' Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinPriceUsd" Text='{Binding Path=PriceUsd}'  Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinChangePercent24Hr" Text='{Binding Path=ChangePercent24Hr}' Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
+        <TextBlock x:Name="CoinVwap24Hr" Text='{Binding Path=Vwap24Hr}' Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" FontFamily="Georgia" FontSize="14" FontWeight="Bold"></TextBlock>
     </Grid>
 </UserControl>
