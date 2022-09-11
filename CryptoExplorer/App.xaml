@@ -9,6 +9,8 @@
             <ResourceDictionary.MergedDictionaries>
             
             <ResourceDictionary Source="/Resources/Styles/Icons.xaml" />
+            <ResourceDictionary Source="/Resources/Styles/DarkTheme.xaml"/>
+            <ResourceDictionary Source="/Resources/Styles/WhiteTheme.xaml"/>
             <ResourceDictionary Source="/Resources/Styles/WindowButtons.xaml" />
 
             </ResourceDictionary.MergedDictionaries>

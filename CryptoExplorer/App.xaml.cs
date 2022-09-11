@@ -18,7 +18,7 @@ namespace CryptoExplorer
         {
             Window window = new MainWindow();
             window.DataContext = new HomeViewModel();
-             
+                
             window.Show();
                 
             base.OnStartup(e);

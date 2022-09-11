@@ -3,18 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:nav="clr-namespace:CryptoExplorer.State.Navigators"
              xmlns:local="clr-namespace:CryptoExplorer.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Width="{Binding ElementName=InfoPage, Path=Width}" Height="{Binding ElementName=InfoPage, Path=Height}">
-        <StackPanel Background="WhiteSmoke" Orientation="Vertical">
-            <TextBlock Text=".NET Developer Test Assignment" Margin="0 80 0 0" HorizontalAlignment="Center" FontSize="26"/>
+             mc:Ignorable="d"  Width="800" Height="534">
+    <Grid Style="{DynamicResource GridStyle}" DataContext="{Binding Navigator}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250px" ></RowDefinition>
+            <RowDefinition Height="50px" ></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-            <Grid Margin="30 60 0 0" HorizontalAlignment="Left">
-                <TextBlock Grid.Row="0" Grid.Column="1" 
+        <TextBlock Style="{DynamicResource TextStyle}" Grid.Row="0" Grid.ColumnSpan="3" Text=".NET Developer Test Assignment" Margin="0,63,0,146" HorizontalAlignment="Left" FontSize="26" Width="357" Grid.Column="1"/>
+
+        <TextBlock Style="{DynamicResource TextStyle}" Grid.ColumnSpan="3" Grid.Row="0" 
                    Text="This is an application for reviewing and analyzing cryptocurrencies. Which supports viewing any cryptocurrency. On the home page you can see 10 popular ones. A menu has also been created that will help you navigate the application."
-                   TextWrapping="Wrap" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Center"/>
-            </Grid>
-        </StackPanel>
+                   TextWrapping="Wrap" HorizontalAlignment="Left"  FontSize="18" VerticalAlignment="Top" Height="120" Width="492" Margin="0,120,0,0" Grid.Column="1"/>
+
+        <Button Style="{DynamicResource ButtonStyle}" Command="{Binding UpdateThemeCommand}"  
+                             CommandParameter="{x:Static nav:ThemeType.Dark}" Grid.Row="1"  Grid.Column="1">Dark Theme</Button>
+        <Button Style="{DynamicResource ButtonStyle}" Command="{Binding UpdateThemeCommand}"  
+                             CommandParameter="{x:Static nav:ThemeType.White}" Grid.Row="1" Grid.Column="2" Width="100" Height="50"  >White Theme</Button>
     </Grid>
 </UserControl>

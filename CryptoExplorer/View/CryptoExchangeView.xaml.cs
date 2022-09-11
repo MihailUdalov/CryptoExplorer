@@ -22,7 +22,10 @@ namespace CryptoExplorer.View
 
             CryptoDataCoins = GetCryptoCoins();
             FirstCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
+            FirstCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
+
             SecondtCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
+            SecondtCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
         }
 
         private CryptoCoins GetCryptoCoins()

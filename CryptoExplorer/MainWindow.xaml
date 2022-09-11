@@ -12,7 +12,7 @@
         MaxHeight="558px" MinHeight="558px"
         MaxWidth="850px" MinWidth="850"
         WindowStartupLocation="CenterScreen">
-    <Grid >
+    <Grid Style="{DynamicResource GridStyle}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="44px" ></RowDefinition>
             <RowDefinition Height="2px"></RowDefinition>
@@ -24,7 +24,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--Header-->
-        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" DataContext="{Binding Navigator}">
+        <Grid Style="{DynamicResource HeaderStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" DataContext="{Binding Navigator}">
             <!--Title section-->
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight"
                     Margin="15 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -63,7 +63,7 @@
         <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="Black"/>
 
         <!--Menu-->
-        <Grid Name="HamburgerMenu" Grid.Row="3"  Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"
+        <Grid Style="{DynamicResource MenuStyle}" Name="HamburgerMenu" Grid.Row="3"  Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3"
                     Width="60" Panel.ZIndex="1"  HorizontalAlignment="Left"
                     >
             <Grid DataContext="{Binding Navigator}">

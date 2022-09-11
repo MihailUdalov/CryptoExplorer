@@ -17,11 +17,17 @@ namespace CryptoExplorer.State.Navigators
        CryptoExchange,
        CryptoDetails
     }
+    public enum ThemeType
+    {
+        Dark,
+        White
+    }
 
     public class Navigator : ObservableObject, INavigator
     {
         private ViewModelBase _currentViewModel;
         public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+        public ICommand UpdateThemeCommand => new UpdateThemeCommand(this);
         public ICommand CloseWindow => new CloseWindowCommand();
         public ICommand MinimazeWindow => new MinimazeWindowCommand();
 
