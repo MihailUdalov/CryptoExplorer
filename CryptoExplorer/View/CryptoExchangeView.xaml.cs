@@ -14,36 +14,18 @@ namespace CryptoExplorer.View
     /// </summary>
     public partial class CryptoExchangeView : UserControl
     {
-        public CryptoCoins CryptoDataCoins { get; set; }
-
         public CryptoExchangeView()
         {
             InitializeComponent();
 
-            CryptoDataCoins = GetCryptoCoins();
-            FirstCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
-            FirstCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
 
-            SecondCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
-            SecondCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
-        }
+            StaticDataCryptoCoins.RefrechCryptoCoinData();
 
-        private CryptoCoins GetCryptoCoins()
-        {
-            const string URL = "https://api.coincap.io/v2/assets";
+            FirstCryptoCoinComboBox.ItemsSource = StaticDataCryptoCoins.CryptoCoins.Data;
+            FirstCryptoCoinComboBox.SelectedItem = StaticDataCryptoCoins.CryptoCoins.Data.FirstOrDefault();
 
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(URL);
-
-            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-            string response;
-
-            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
-            {
-                response = streamReader.ReadToEnd();
-            }
-
-            return JsonConvert.DeserializeObject<CryptoCoins>(response);
+            SecondCryptoCoinComboBox.ItemsSource = StaticDataCryptoCoins.CryptoCoins.Data;
+            SecondCryptoCoinComboBox.SelectedItem = StaticDataCryptoCoins.CryptoCoins.Data.FirstOrDefault();
         }
     }
 }

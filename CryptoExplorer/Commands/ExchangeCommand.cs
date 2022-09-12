@@ -22,7 +22,7 @@ namespace CryptoExplorer.Commands
         {
             List<ComboBox> comboBoxes = new List<ComboBox>();
             List<TextBox> textBoxes = new List<TextBox>();
-            if (parameter is object[] enumrable)
+                if (parameter is object[] enumrable)
             {
                 for (int i = 0; i < enumrable.Length; i++)
                 {

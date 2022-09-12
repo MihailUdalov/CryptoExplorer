@@ -26,19 +26,24 @@ namespace CryptoExplorer.View
         {
             InitializeComponent();
 
-            DataContext = CryptoDetailsViewModel.CryptoCoin;
+            DataContext = CreateViewToShow(StaticDataCryptoCoins.DetailsCryptoCoin);
+        }
 
-            CryptoDetailsViewModel.CryptoCoin.ID = "ID: " + CryptoDetailsViewModel.CryptoCoin.ID;
-            CryptoDetailsViewModel.CryptoCoin.Rank = "Rank: " + CryptoDetailsViewModel.CryptoCoin.Rank;
-            CryptoDetailsViewModel.CryptoCoin.Symbol = "Symbol: " + CryptoDetailsViewModel.CryptoCoin.Symbol;
-            CryptoDetailsViewModel.CryptoCoin.Supply = "Supply: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.Supply),3).ToString();
-            CryptoDetailsViewModel.CryptoCoin.MaxSupply = "MaxSupply: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.MaxSupply),3).ToString();
+        public DataCoin CreateViewToShow(DataCoin dataCoin)
+        {
+            dataCoin.ID = "ID: " + dataCoin.ID;
+            dataCoin.Rank = "Rank: " + dataCoin.Rank;
+            dataCoin.Symbol = "Symbol: " + dataCoin.Symbol;
+            dataCoin.Supply = "Supply: " + Math.Round(Convert.ToDecimal(dataCoin.Supply), 3).ToString();
+            dataCoin.MaxSupply = "MaxSupply: " + Math.Round(Convert.ToDecimal(dataCoin.MaxSupply), 3).ToString();
 
-            CryptoDetailsViewModel.CryptoCoin.MarketCapUsd = "MarketCapUsd: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.MarketCapUsd),3).ToString();
-            CryptoDetailsViewModel.CryptoCoin.VolumeUsd24Hr = "VolumeUsd24Hr: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.VolumeUsd24Hr),3).ToString();
-            CryptoDetailsViewModel.CryptoCoin.PriceUsd = "PriceUsd: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.PriceUsd),3).ToString() + "$";
-            CryptoDetailsViewModel.CryptoCoin.ChangePercent24Hr = "ChangePercent24Hr: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.ChangePercent24Hr),3).ToString();
-            CryptoDetailsViewModel.CryptoCoin.Vwap24Hr = "Vwap24Hr: " + Math.Round(Convert.ToDecimal(CryptoDetailsViewModel.CryptoCoin.Vwap24Hr), 3).ToString();
+            dataCoin.MarketCapUsd = "MarketCapUsd: " + Math.Round(Convert.ToDecimal(dataCoin.MarketCapUsd), 3).ToString();
+            dataCoin.VolumeUsd24Hr = "VolumeUsd24Hr: " + Math.Round(Convert.ToDecimal(dataCoin.VolumeUsd24Hr), 3).ToString();
+            dataCoin.PriceUsd = "PriceUsd: " + Math.Round(Convert.ToDecimal(dataCoin.PriceUsd), 3).ToString() + "$";
+            dataCoin.ChangePercent24Hr = "ChangePercent24Hr: " + Math.Round(Convert.ToDecimal(dataCoin.ChangePercent24Hr), 3).ToString();
+            dataCoin.Vwap24Hr = "Vwap24Hr: " + Math.Round(Convert.ToDecimal(dataCoin.Vwap24Hr), 3).ToString();
+
+            return dataCoin;
         }
     }
 }

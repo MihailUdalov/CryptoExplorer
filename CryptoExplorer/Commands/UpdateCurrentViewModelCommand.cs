@@ -1,4 +1,5 @@
-﻿using CryptoExplorer.State.Navigators;
+﻿using CryptoExplorer.Models;
+using CryptoExplorer.State.Navigators;
 using CryptoExplorer.View;
 using CryptoExplorer.ViewModel;
 using System;
@@ -46,8 +47,10 @@ namespace CryptoExplorer.Commands
                     case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();
                         break;
-                    case ViewType.CryptoDetails:  
-                        _navigator.CurrentViewModel = new CryptoDetailsViewModel(coinName);
+                    case ViewType.CryptoDetails:
+                        StaticDataCryptoCoins.RefrechCryptoCoinData();
+                        StaticDataCryptoCoins.DetailsCryptoCoin = StaticDataCryptoCoins.CryptoCoins.Data.FirstOrDefault(x => x.Name == coinName);
+                        _navigator.CurrentViewModel = new CryptoDetailsViewModel();
                         break;
                     case ViewType.CryptoExchange:
                         _navigator.CurrentViewModel = new CryptoExchangeViewModel();

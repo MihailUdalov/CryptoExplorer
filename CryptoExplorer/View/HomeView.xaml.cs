@@ -26,36 +26,13 @@ namespace CryptoExplorer.View
     /// </summary>
     public partial class HomeView : UserControl
     {
-        public CryptoCoins CryptoDataCoins { get; set; }
         public HomeView()
         {
             InitializeComponent();
-            PushToListView();
-        }
 
-        private CryptoCoins GetCryptoCoins()
-        {
-            const string URL = "https://api.coincap.io/v2/assets";
+            StaticDataCryptoCoins.RefrechCryptoCoinData();
 
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(URL);
-
-            HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-            string response;
-
-            using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
-            {
-                response = streamReader.ReadToEnd();
-            }
-
-            return JsonConvert.DeserializeObject<CryptoCoins>(response);
-        }
-
-        public void PushToListView()
-        {
-            CryptoDataCoins = GetCryptoCoins();
-
-            CoinsList.ItemsSource = CryptoDataCoins.Data.Take(10);
+            CoinsList.ItemsSource = StaticDataCryptoCoins.CryptoCoins.Data.Take(10);
         }
     }
 }
