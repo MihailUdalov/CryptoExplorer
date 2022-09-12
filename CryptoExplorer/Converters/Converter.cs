@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace CryptoExplorer.Converters
 {
-    internal class HomeConverter : IMultiValueConverter
+    public class Converter : IMultiValueConverter
     {   
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

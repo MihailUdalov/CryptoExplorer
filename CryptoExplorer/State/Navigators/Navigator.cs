@@ -24,14 +24,22 @@ namespace CryptoExplorer.State.Navigators
         White
     }
 
+    public enum ListViewCommandType
+    {
+        Search,
+        Refrech
+    }
+
     public class Navigator : ObservableObject, INavigator
     {
         private ViewModelBase _currentViewModel;
-
+        
         public static bool Hidden = true;
         public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
         public ICommand ShowHideMenuCommand => new ShowHideMenuCommand(this);
         public ICommand UpdateThemeCommand => new UpdateThemeCommand(this);
+        public ICommand ExchangeCommand => new ExchangeCommand();
+        public ICommand ListViewCommand => new ListViewCommand(this);
         public ICommand CloseWindow => new CloseWindowCommand();
         public ICommand MinimazeWindow => new MinimazeWindowCommand();
 

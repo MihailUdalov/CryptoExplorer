@@ -57,15 +57,5 @@ namespace CryptoExplorer.View
 
             CoinsList.ItemsSource = CryptoDataCoins.Data.Take(10);
         }
-
-        private void CoinSearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            CoinsList.ItemsSource = CryptoDataCoins.Data.Where(x => x.Name.Contains(CoinSearchTextBox.Text));
-        }
-
-        private void RefrechListViewButton_Click(object sender, RoutedEventArgs e)
-        {
-            PushToListView();
-        }
     }
 }

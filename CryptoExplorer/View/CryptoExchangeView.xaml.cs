@@ -24,8 +24,8 @@ namespace CryptoExplorer.View
             FirstCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
             FirstCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
 
-            SecondtCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
-            SecondtCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
+            SecondCryptoCoinComboBox.ItemsSource = CryptoDataCoins.Data;
+            SecondCryptoCoinComboBox.SelectedItem = CryptoDataCoins.Data.FirstOrDefault();
         }
 
         private CryptoCoins GetCryptoCoins()
@@ -44,16 +44,6 @@ namespace CryptoExplorer.View
             }
 
             return JsonConvert.DeserializeObject<CryptoCoins>(response);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (FirstTextBox.Text != "" && FirstCryptoCoinComboBox.SelectedItem is DataCoin firstCryptoCoin 
-                && SecondtCryptoCoinComboBox.SelectedItem is DataCoin secondCryptoCoin 
-                && Convert.ToDecimal(FirstTextBox.Text) is decimal count )
-                
-                SecondtTextBox.Text = Math.Round((Convert.ToDecimal(firstCryptoCoin.PriceUsd) * count) / Convert.ToDecimal(secondCryptoCoin.PriceUsd), 8).ToString();
-            
         }
     }
 }

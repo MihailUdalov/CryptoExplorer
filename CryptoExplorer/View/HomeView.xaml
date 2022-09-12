@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:CryptoExplorer.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="534">
     <UserControl.Resources>
-        <converter:HomeConverter x:Key="HomeConverter"/>
+        <converter:Converter x:Key="HomeConverter"/>
     </UserControl.Resources>
     <Grid Style="{DynamicResource GridStyle}">
         <Grid.RowDefinitions>
@@ -19,11 +19,29 @@
             <ColumnDefinition Width="400px" ></ColumnDefinition>
             <ColumnDefinition Name="ContentColumn" Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" DataContext="{Binding Navigator}">
             <TextBlock Style="{DynamicResource TextStyle}" FontSize="14" FontWeight="Bold" Margin="0,10,0,-10" >Search by name CryptoCoin:</TextBlock>
             <TextBox x:Name="CoinSearchTextBox" Width="200" Height="20" Margin="0,33,200,13" ></TextBox>
-            <Button Style="{DynamicResource ButtonStyle}" x:Name="CoinSearchButton" Width="60" Height="20"  Click="CoinSearchButton_Click" Margin="215,33,125,13">Search</Button>
-            <Button Style="{DynamicResource ButtonStyle}" x:Name="RefrechListViewButton" Width="60" Height="20" Click="RefrechListViewButton_Click" Margin="292,33,48,13" RenderTransformOrigin="0.709,1.628">Refrech</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="CoinSearchButton" Width="60" Height="20"  Command="{Binding ListViewCommand}"  Margin="215,33,125,13">
+                Search
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource HomeConverter}">
+                        <Binding ElementName="CoinsList"/>
+                        <Binding ElementName="CoinSearchTextBox"/>
+                        <Binding Source="{x:Static nav:ListViewCommandType.Search}"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="RefrechListViewButton" Width="60" Height="20" 
+                    Command="{Binding ListViewCommand}" 
+                    Margin="292,33,48,13" RenderTransformOrigin="0.709,1.628">Refrech
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource HomeConverter}">
+                        <Binding ElementName="CoinsList"/>
+                        <Binding Source="{x:Static nav:ListViewCommandType.Refrech}"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="2" DataContext="{Binding Navigator}">
             <ListView Name="CoinsList" Width="790" Background="Transparent" BorderThickness="1.000001" BorderBrush="Black"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">

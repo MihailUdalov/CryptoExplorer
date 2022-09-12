@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:nav="clr-namespace:CryptoExplorer.State.Navigators"
+             xmlns:converter ="clr-namespace:CryptoExplorer.Converters"  
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Style="{DynamicResource GridStyle}" >
+    <UserControl.Resources>
+        <converter:Converter x:Key="Converter"/>
+    </UserControl.Resources>
+    <Grid Style="{DynamicResource GridStyle}" DataContext="{Binding Navigator}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="50px" ></RowDefinition>
             <RowDefinition Height="70px" ></RowDefinition>
@@ -29,9 +34,18 @@
         <ComboBox x:Name="FirstCryptoCoinComboBox"  DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" ></ComboBox>
         <TextBox x:Name="FirstTextBox" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Column="1" Grid.Row="4"></TextBox>
 
-        <ComboBox x:Name="SecondtCryptoCoinComboBox" DisplayMemberPath="Name" Grid.Column="5" Grid.Row="2" ></ComboBox>
-        <TextBox x:Name="SecondtTextBox" Grid.Column="5" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="4" IsReadOnly="True"></TextBox>
+        <ComboBox x:Name="SecondCryptoCoinComboBox" DisplayMemberPath="Name" Grid.Column="5" Grid.Row="2" ></ComboBox>
+        <TextBox x:Name="SecondTextBox" Grid.Column="5" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="4" IsReadOnly="True"></TextBox>
 
-        <Button Style="{DynamicResource ButtonStyle}" Grid.Column="3" Grid.Row="5" Click="Button_Click">Exchange</Button>
+        <Button Style="{DynamicResource ButtonStyle}" Grid.Column="3" Grid.Row="5"  Command="{Binding ExchangeCommand}" >Exchange
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource Converter}">
+                    <Binding ElementName="FirstCryptoCoinComboBox"/>
+                    <Binding ElementName="FirstTextBox"/>
+                    <Binding ElementName="SecondCryptoCoinComboBox"/>
+                    <Binding ElementName="SecondTextBox"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
     </Grid>
 </UserControl>
