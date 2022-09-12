@@ -26,12 +26,41 @@
             <Button Style="{DynamicResource ButtonStyle}" x:Name="RefrechListViewButton" Width="60" Height="20" Click="RefrechListViewButton_Click" Margin="292,33,48,13" RenderTransformOrigin="0.709,1.628">Refrech</Button>
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="2" DataContext="{Binding Navigator}">
-            <ListView Name="CoinsList" Width="790" Background="Transparent" BorderThickness="1" BorderBrush="Black"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
-            <ListView.View>
-                <GridView AllowsColumnReorder="False">
-                    <GridViewColumn DisplayMemberBinding="{Binding Path= Rank}" Width="100" Header="Rank"></GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Width="100" Header="Name"></GridViewColumn>      
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=PriceUsd}"  Width="200" Header="Price" ></GridViewColumn>
+            <ListView Name="CoinsList" Width="790" Background="Transparent" BorderThickness="1.000001" BorderBrush="Black"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemContainerStyle>
+                    <Style>
+                        <Style.Triggers>
+                            <Trigger Property="Control.IsMouseOver" Value="True">
+                                <Setter Property="Control.Background" Value="Transparent" />
+                                <Setter Property="Control.BorderBrush" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+               
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn Width="100" Header="Rank">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{DynamicResource TextColumnStyle}" Text="{Binding Path= Rank}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Width="100" Header="Name">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{DynamicResource TextColumnStyle}" Text="{Binding Path=Name}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="200" Header="Price" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{DynamicResource TextColumnStyle}" Text="{Binding Path=PriceUsd}"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     <GridViewColumn Width="215" Header="Details" >
                         <GridViewColumn.CellTemplate  >
                                 <DataTemplate>

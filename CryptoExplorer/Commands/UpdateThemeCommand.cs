@@ -49,7 +49,6 @@ namespace CryptoExplorer.Commands
         {
             var uri = new Uri(theme, UriKind.Relative);
             ResourceDictionary resourceDictionary = Application.LoadComponent(uri) as ResourceDictionary;
-            //Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
     }

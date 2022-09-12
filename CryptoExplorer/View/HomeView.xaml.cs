@@ -52,7 +52,7 @@ namespace CryptoExplorer.View
         }
 
         public void PushToListView()
-        {        
+        {
             CryptoDataCoins = GetCryptoCoins();
 
             CoinsList.ItemsSource = CryptoDataCoins.Data.Take(10);

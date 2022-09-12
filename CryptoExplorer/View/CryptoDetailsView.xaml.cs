@@ -26,7 +26,7 @@ namespace CryptoExplorer.View
         {
             InitializeComponent();
 
-            this.DataContext = CryptoDetailsViewModel.CryptoCoin;
+            DataContext = CryptoDetailsViewModel.CryptoCoin;
 
             CryptoDetailsViewModel.CryptoCoin.ID = "ID: " + CryptoDetailsViewModel.CryptoCoin.ID;
             CryptoDetailsViewModel.CryptoCoin.Rank = "Rank: " + CryptoDetailsViewModel.CryptoCoin.Rank;
