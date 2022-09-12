@@ -156,7 +156,7 @@
                                 </Path>
                             </Grid>
 
-                            <TextBlock Text="{TemplateBinding Tag}" Foreground="Black" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Text="Menu" Foreground="Black" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -196,7 +196,7 @@
                                   Width="30" Height="30" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
                             </Grid>
 
-                            <TextBlock Text="О программе" Foreground="Black" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            <TextBlock Text="Info/Settings" Foreground="Black" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -238,7 +238,7 @@
                                   Width="20" Height="20" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
                             </Grid>
 
-                            <TextBlock Text="Код с проверкой четности" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            <TextBlock Text="Home" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -281,7 +281,7 @@
                                   Width="30" Height="30" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5"/>
                             </Grid>
 
-                            <TextBlock Text="Код Хемминга" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            <TextBlock Text="Exchange" Foreground="Black" FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CryptoExplorer.Models
 {
     public class ObservableObject : INotifyPropertyChanged
-    {
+    {   
             
         protected void OnProperyChange(string propertyName)
         {

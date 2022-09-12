@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace CryptoExplorer.State.Navigators
@@ -26,7 +27,10 @@ namespace CryptoExplorer.State.Navigators
     public class Navigator : ObservableObject, INavigator
     {
         private ViewModelBase _currentViewModel;
+
+        public static bool Hidden = true;
         public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+        public ICommand ShowHideMenuCommand => new ShowHideMenuCommand(this);
         public ICommand UpdateThemeCommand => new UpdateThemeCommand(this);
         public ICommand CloseWindow => new CloseWindowCommand();
         public ICommand MinimazeWindow => new MinimazeWindowCommand();
