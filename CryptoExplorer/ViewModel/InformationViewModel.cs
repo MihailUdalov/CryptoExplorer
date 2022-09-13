@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CryptoExplorer.Commands;
+using System.Windows.Input;
 
 namespace CryptoExplorer.ViewModel
 {
     public class InformationViewModel : ViewModelBase
     {
+        public InformationViewModel()
+        {
+
+        }
+        public ICommand UpdateThemeCommand => new UpdateThemeCommand();
     }
 }

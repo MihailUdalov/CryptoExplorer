@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Input;
+using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace CryptoExplorer.Commands
 {
-    internal class CloseWindowCommand : ICommand
+    internal class FollowTheLinkCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -15,7 +16,11 @@ namespace CryptoExplorer.Commands
 
         public void Execute(object parameter)
         {
-            Application.Current.MainWindow.Close();
+            System.Diagnostics.Process.Start(new ProcessStartInfo
+            {
+                FileName = ((TextBlock)parameter).Tag.ToString(),
+                UseShellExecute = true
+            });
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:nav="clr-namespace:CryptoExplorer.State.Navigators"
+             xmlns:model="clr-namespace:CryptoExplorer.ViewModel"
              xmlns:converter ="clr-namespace:CryptoExplorer.Converters"         
              xmlns:local="clr-namespace:CryptoExplorer.View"
              mc:Ignorable="d" d:DesignWidth="800" Height="534">
@@ -19,16 +20,16 @@
             <ColumnDefinition Width="400px" ></ColumnDefinition>
             <ColumnDefinition Name="ContentColumn" Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" DataContext="{Binding Navigator}">
+        <Grid Grid.Row="0">
             <TextBlock Style="{DynamicResource TextStyle}" FontSize="14" FontWeight="Bold" Margin="0,10,0,-10" >Search by name CryptoCoin:</TextBlock>
-            <TextBox x:Name="CoinSearchTextBox" Width="200" Height="20" Margin="0,33,200,13" ></TextBox>
+            <TextBox x:Name="CoinSearchTextBox" Width="200" Height="20" Margin="0,33,200,13"></TextBox>
             <Button Style="{DynamicResource ButtonStyle}" x:Name="CoinSearchButton" Width="60" Height="20"  Command="{Binding ListViewCommand}"  Margin="215,33,125,13">
                 Search
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource HomeConverter}">
                         <Binding ElementName="CoinsList"/>
                         <Binding ElementName="CoinSearchTextBox"/>
-                        <Binding Source="{x:Static nav:ListViewCommandType.Search}"/>
+                        <Binding Source="{x:Static model:ListViewCommandType.Search}"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>
@@ -38,13 +39,15 @@
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource HomeConverter}">
                         <Binding ElementName="CoinsList"/>
-                        <Binding Source="{x:Static nav:ListViewCommandType.Refrech}"/>
+                        <Binding Source="{x:Static model:ListViewCommandType.Refrech}"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>
         </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" DataContext="{Binding Navigator}">
-            <ListView Name="CoinsList" Width="790" Background="Transparent" BorderThickness="1.000001" BorderBrush="Black"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <ListView Name="CoinsList" Width="790" Background="Transparent" BorderThickness="1.000001"                    
+                       ItemsSource ="{Binding Path=Coins.Cryptocurrencies}"
+                      BorderBrush="Black"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
                 <ListView.ItemContainerStyle>
                     <Style>
                         <Style.Triggers>
@@ -79,15 +82,16 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                    <GridViewColumn Width="215" Header="Details" >
-                        <GridViewColumn.CellTemplate  >
+                        <GridViewColumn Width="215" Header="Details" >
+                            <GridViewColumn.CellTemplate  >
                                 <DataTemplate>
-                                    <Button Style="{DynamicResource ButtonStyle}" Width="200" FontSize="14" FontWeight="Bold" Command="{Binding ElementName = CoinsList, Path= DataContext.UpdateCurrentViewModelCommand}"
+                                    <Button Style="{DynamicResource ButtonStyle}"  Width="200" FontSize="14" FontWeight="Bold" 
+                                     Command="{Binding ElementName = CoinsList, Path = DataContext.UpdateCurrentViewModelCommand }"
                                      Tag="{Binding Path=Name}">Details
                                         <Button.CommandParameter>
                                             <MultiBinding Converter="{StaticResource HomeConverter}">
                                                 <Binding Source="{x:Static nav:ViewType.CryptoDetails}"/>
-                                                <Binding Path="Name"/>
+                                                <Binding Path="ID"/>
                                             </MultiBinding>
                                         </Button.CommandParameter>
                                     </Button>

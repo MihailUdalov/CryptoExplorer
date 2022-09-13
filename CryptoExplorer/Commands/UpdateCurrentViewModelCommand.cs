@@ -1,14 +1,7 @@
-﻿using CryptoExplorer.Models;
-using CryptoExplorer.State.Navigators;
-using CryptoExplorer.View;
+﻿using CryptoExplorer.State.Navigators;
 using CryptoExplorer.ViewModel;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CryptoExplorer.Commands
@@ -31,15 +24,15 @@ namespace CryptoExplorer.Commands
 
         public void Execute(object parameter)
         {
-            string coinName = "";
-            if (parameter is IEnumerable<object> enumrable)
+            string coinID = "";
+            if (parameter is object[] objects)
             {
-                parameter = enumrable.FirstOrDefault();
-                coinName = enumrable.Last().ToString();
+                parameter = objects.FirstOrDefault();
+                coinID = objects.LastOrDefault().ToString();
             }
-            if(parameter is ViewType viewType)
+            if (parameter is ViewType viewType)
             {
-                switch(viewType)
+                switch (viewType)
                 {
                     case ViewType.Info:
                         _navigator.CurrentViewModel = new InformationViewModel();
@@ -48,9 +41,7 @@ namespace CryptoExplorer.Commands
                         _navigator.CurrentViewModel = new HomeViewModel();
                         break;
                     case ViewType.CryptoDetails:
-                        StaticDataCryptoCoins.RefrechCryptoCoinData();
-                        StaticDataCryptoCoins.DetailsCryptoCoin = StaticDataCryptoCoins.CryptoCoins.Data.FirstOrDefault(x => x.Name == coinName);
-                        _navigator.CurrentViewModel = new CryptoDetailsViewModel();
+                        _navigator.CurrentViewModel = new CryptoDetailsViewModel(coinID);
                         break;
                     case ViewType.CryptoExchange:
                         _navigator.CurrentViewModel = new CryptoExchangeViewModel();
@@ -60,6 +51,7 @@ namespace CryptoExplorer.Commands
 
                 }
             }
+
         }
     }
 }

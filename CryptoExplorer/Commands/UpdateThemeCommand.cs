@@ -1,10 +1,5 @@
-﻿using CryptoExplorer.State.Navigators;
-using CryptoExplorer.ViewModel;
+﻿using CryptoExplorer.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,13 +8,6 @@ namespace CryptoExplorer.Commands
     internal class UpdateThemeCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-
-        public INavigator _navigator;
-
-        public UpdateThemeCommand(INavigator navigator)
-        {
-            _navigator = navigator;
-        }
 
         public bool CanExecute(object parameter)
         {

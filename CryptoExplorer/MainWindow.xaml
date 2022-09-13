@@ -24,7 +24,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--Header-->
-        <Grid Style="{DynamicResource HeaderStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" DataContext="{Binding Navigator}">
+        <Grid Style="{DynamicResource HeaderStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}">
             <!--Title section-->
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight"
                     Margin="15 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -36,7 +36,7 @@
             </StackPanel>
 
             <!--Window buttons-->
-            <StackPanel VerticalAlignment="Center" FlowDirection="RightToLeft" Orientation="Horizontal"
+            <StackPanel DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}" VerticalAlignment="Center" FlowDirection="RightToLeft" Orientation="Horizontal"
                     Margin="0 0 20 0" HorizontalAlignment="Right">
                 <Button Name="btnClose"
                     Style="{StaticResource CloseButtonStyle}"
@@ -82,8 +82,8 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-    
-                <ToggleButton Grid.Row="0" Height="60"           
+
+                <ToggleButton Grid.Row="0" Height="60" DataContext="{Binding Path=MainViewModel, Source={StaticResource Locator}}"           
                               Style="{StaticResource MenuButtonStyle}" Width="{Binding Width, ElementName=HamburgerMenu}" 
                               Tag="Menu" Background="Black" Focusable="False" Grid.ColumnSpan="2" HorizontalAlignment="Left"
                               Command="{Binding ShowHideMenuCommand}" 

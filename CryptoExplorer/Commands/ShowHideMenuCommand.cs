@@ -1,10 +1,5 @@
-﻿using CryptoExplorer.State.Navigators;
-using CryptoExplorer.ViewModel;
+﻿using CryptoExplorer.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,13 +11,6 @@ namespace CryptoExplorer.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        public INavigator _navigator;
-
-        public ShowHideMenuCommand(INavigator navigator)
-        {
-            _navigator = navigator;
-        }
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -31,10 +19,10 @@ namespace CryptoExplorer.Commands
         public void Execute(object parameter)
         {
             var resourceDictionary = new ResourceDictionary() { Source = new Uri("../Resources/Storyboards/MenuStoryboards.xaml", UriKind.RelativeOrAbsolute) };
-            Storyboard sb = (Navigator.Hidden ? resourceDictionary["sbShowMenu"] : resourceDictionary["sbHideMenu"]) as Storyboard;
+            Storyboard sb = (MainViewModel.Hidden ? resourceDictionary["sbShowMenu"] : resourceDictionary["sbHideMenu"]) as Storyboard;
 
             sb.Begin((Grid)parameter);
-            Navigator.Hidden = !Navigator.Hidden;
+            MainViewModel.Hidden = !MainViewModel.Hidden;
         }
     }
 }

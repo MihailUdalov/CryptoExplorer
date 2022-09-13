@@ -1,18 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CryptoExplorer.Models
+namespace CryptoExplorer.APINameCryptoProviders
 {
-    public class CryptoCoins
+    public class CryptocurrencyCollection
     {
-        public List<DataCoin> Data { get; set; }
-
-
+        [JsonProperty("data", Required = Required.Always)]
+        public List<Cryptocurrency> Cryptocurrencies { get; set; }
     }
-    public class DataCoin
+    public class Cryptocurrency
     {
         public string ID { get; set; }
         public string Rank { get; set; }
@@ -25,10 +21,5 @@ namespace CryptoExplorer.Models
         public string PriceUsd { get; set; }
         public string ChangePercent24Hr { get; set; }
         public string Vwap24Hr { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Rank} {Name} {PriceUsd}";
-        }
     }
 }

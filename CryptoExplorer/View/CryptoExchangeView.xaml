@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:model="clr-namespace:CryptoExplorer.ViewModel"
              mc:Ignorable="d" 
              xmlns:nav="clr-namespace:CryptoExplorer.State.Navigators"
              xmlns:converter ="clr-namespace:CryptoExplorer.Converters"  
@@ -31,13 +32,16 @@
         </Grid.ColumnDefinitions>
         <TextBlock  Style="{DynamicResource TextStyle}"  Grid.ColumnSpan="4" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Georgia" FontSize="20" FontWeight="Bold" Grid.Column="1" Margin="196,0,0,0">Exchanger</TextBlock>
 
-        <ComboBox x:Name="FirstCryptoCoinComboBox"  DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" ></ComboBox>
+        <ComboBox x:Name="FirstCryptoCoinComboBox" DataContext="{Binding Path=CryptoExchangeViewModel, Source={StaticResource Locator}}" ItemsSource ="{Binding Path=Coins.Cryptocurrencies}" 
+                  SelectedItem="{Binding Path=Coins.Cryptocurrencies[0]}"  DisplayMemberPath="Name" Grid.Column="1" Grid.Row="2" ></ComboBox>
         <TextBox x:Name="FirstTextBox" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Column="1" Grid.Row="4"></TextBox>
 
-        <ComboBox x:Name="SecondCryptoCoinComboBox" DisplayMemberPath="Name" Grid.Column="5" Grid.Row="2" ></ComboBox>
+        <ComboBox x:Name="SecondCryptoCoinComboBox" DataContext="{Binding Path=CryptoExchangeViewModel, Source={StaticResource Locator}}"
+                  ItemsSource ="{Binding Path=Coins.Cryptocurrencies}" SelectedItem="{Binding Path=Coins.Cryptocurrencies[0]}" DisplayMemberPath="Name" Grid.Column="5" Grid.Row="2" ></ComboBox>
         <TextBox x:Name="SecondTextBox" Grid.Column="5" FontSize="14" FontFamily="Verdana" FontWeight="Bold" Grid.Row="4" IsReadOnly="True"></TextBox>
 
-        <Button Style="{DynamicResource ButtonStyle}" Grid.Column="3" Grid.Row="5"  Command="{Binding ExchangeCommand}" >Exchange
+        <Button DataContext="{Binding Path=CryptoExchangeViewModel, Source={StaticResource Locator}}"
+                Style="{DynamicResource ButtonStyle}" Grid.Column="3" Grid.Row="5"  Command="{Binding ExchangeCommand}" >Exchange
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource Converter}">
                     <Binding ElementName="FirstCryptoCoinComboBox"/>
