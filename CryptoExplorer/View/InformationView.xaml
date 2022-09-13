@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Style="{DynamicResource TextStyle}" Grid.Row="0" Grid.ColumnSpan="3" Text=".NET Developer Test Assignment" Margin="0,63,0,146" HorizontalAlignment="Left" FontSize="26" Width="357" Grid.Column="1"/>
+        <TextBlock Style="{DynamicResource TextStyle}" Grid.Row="0" Grid.ColumnSpan="3" Text=".NET Developer Test Assignment" Margin="0,63,0,146" HorizontalAlignment="Left" FontSize="26" Width="384" Grid.Column="1"/>
 
         <TextBlock Style="{DynamicResource TextStyle}" Grid.ColumnSpan="3" Grid.Row="0" 
                    Text="This is an application for reviewing and analyzing cryptocurrencies. Which supports viewing any cryptocurrency. On the home page you can see 10 popular ones. A menu has also been created that will help you navigate the application."
